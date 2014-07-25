@@ -2,10 +2,31 @@
 <html ng-app="lstorageApp">
   <head>
   	<script src="/js/lib/angular.js"></script>
+  	<script src="/js/lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
   	<script src="/js/controllers.js"></script>
   	<script src="/js/app.js"></script>
+  	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  	<link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body ng-controller="MainCtrl">
-    {{maxMessage}}
+  	<div class="container">
+  		<div>
+  			<div id="logo"><img src="imgs/logo.jpg" width="50" /></div>
+  			<div id="sitename">Link Storage</div>
+  		</div>
+  		<div>
+  			<div><a href="">Add Link</a></div>
+  			<div><a href="">Settings</a></div>
+  			<div><a href="">Logout</a></div>
+  		</div>
+  	</div>
+
+  	<div id="main" class="container">
+  		{{maxMessage}}
+  	</div>
+
+  	<footer id="footer" class="container">
+  		<img src="imgs/logo.jpg" width="50" />
+  	</footer>
   </body>
 </html>

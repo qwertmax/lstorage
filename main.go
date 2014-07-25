@@ -5,13 +5,16 @@ import (
     "net/http"
     // "os"
     "io/ioutil"
-    // "template"
 )
 
 func main() {
     // p := fmt.Printf
     http.HandleFunc("/", handler)
     http.HandleFunc("/js/", SourceHandler)
+    http.HandleFunc("/imgs/", SourceHandler)
+    http.HandleFunc("/css/", SourceHandler)
+    http.HandleFunc("/fonts/", SourceHandler)
+    // http.Handle("/imgs/", http.StripPrefix("/imgs/", http.FileServer(http.Dir("imgs"))))
 
     http.ListenAndServe(":8080", nil)
 }
