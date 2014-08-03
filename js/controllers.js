@@ -2,7 +2,7 @@
 
 var lstorageControllers = angular.module('lstorageControllers', []);
 
-lstorageControllers.controller('MainCtrl', ['$scope', function($scope){
+lstorageControllers.controller('MainCtrl', ['$scope', 'USER_ROLES', 'AuthService', function($scope, USER_ROLES, AuthService){
 	$scope.link = "";
 	$scope.categories = [
 		'cat1',
@@ -14,12 +14,23 @@ lstorageControllers.controller('MainCtrl', ['$scope', function($scope){
 
 	$scope.links = [];
 
-	for(var i=0;i<25;i++){
+	for(var i = 0; i < 25; i++){
 		$scope.links.push('link '+ i);
 	}
 
 	$scope.addLink = function(l){
-		$scope.links.push(l);
+		$scope.links.unshift(l);
+		$scope.link = "";
 	}
 
-}])
+	$scope.currentUser = null;
+	$scope.userRoles = USER_ROLES;
+	$scope.isAuthorized = AuthService.isAuthorized;
+
+	$scope.setCurrentUser = function (user) {
+		$scope.currentUser = user;
+	};
+
+}]) 
+
+lstorageControllers.controller('LoginCtrl', ['$scope', '$rootScope', 'AUTH_EVENTS', 'AuthService' , LoginCtrl]);
